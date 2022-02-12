@@ -22,10 +22,14 @@ app.use(cloudinary.config);
 const mongoose = require('mongoose')
 
 // Get the database connection
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const res = require('express/lib/response');
 dotenv.config({ path: './config.env' })
 
 // Routes
+app.use('/', () => {
+  res.redirect('/courses/all');
+})
 app.use('/courses', multerUpload, courseRouter);
 app.use('/tutors/', multerUpload, tutorRouter);
 app.use('/students/', multerUpload, studentRouter);
