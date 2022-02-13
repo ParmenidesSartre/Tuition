@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const studentSchema = mongoose.Schema({
     firstName : {
         type: String,
-        required: [true, 'A student must have a first name'],
-        unique: true,
+        required: [true, 'A student must have a first name']
     },
     lastName : {
         type: String,

@@ -8,6 +8,7 @@ const cloudinary = require('./cloudinaryConfig')
 const courseRouter = require('./routes/courses.route');
 const tutorRouter = require('./routes/tutors.route');
 const studentRouter = require('./routes/students.route');
+const authRouter = require('./routes/auth.route');
 
 // set the view engine to ejs
 app.set('views', __dirname + '/views');
@@ -30,8 +31,9 @@ dotenv.config({ path: './config.env' })
 app.use('/courses', multerUpload, courseRouter);
 app.use('/tutors/', multerUpload, tutorRouter);
 app.use('/students/', multerUpload, studentRouter);
+app.use('/auth', authRouter )
 app.use('/', (req,res) => {
-  res.redirect('/courses/all');
+  res.render('pages/authentication/login');
 })
 
 // Connecting to the database

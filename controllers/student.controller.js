@@ -9,9 +9,9 @@ const Student = require('../models/student.models')
 
 // GET all tutors
 exports.getStudents = async (req, res, next) => {
-  const allstudents = await Student.find({})
+  const allStudents = await Student.find({})
   res.render('pages/students/all-students', {
-    allstudents: allstudents,
+    allStudents: allStudents,
   })
 }
 
@@ -26,7 +26,7 @@ exports.editStudents = async (req, res, next) => {
 // GET tutor details by id
 exports.getStudentDetails = async (req, res, next) => {
   const studentDetail = await Student.find({ _id: req.params.id })
-  res.render('pages/students/about-students', {
+  res.render('pages/students/about-student', {
     studentDetail: studentDetail,
   })
 }
