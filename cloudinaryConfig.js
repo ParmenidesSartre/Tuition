@@ -1,10 +1,13 @@
 const cloudinary = require('cloudinary')
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' })
+
 
 exports.config = (req, res, next) => {
   cloudinary.config({
-    cloud_name: 'dgpwzpczn',
-    api_key: '988171741833447',
-    api_secret: 'isFUdsIc0P2CG8DdGzEqF4D3K6s',
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.APIKEY,
+    api_secret: process.env.APISECRET,
   })
   next()
 }

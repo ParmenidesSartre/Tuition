@@ -23,7 +23,6 @@ const mongoose = require('mongoose')
 
 // Get the database connection
 const dotenv = require('dotenv');
-const res = require('express/lib/response');
 dotenv.config({ path: './config.env' })
 
 // Routes
