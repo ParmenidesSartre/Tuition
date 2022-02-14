@@ -6,20 +6,25 @@ const parser = new DatauriParser()
 
 // Get data from MongoDB
 const Tutor = require('../models/tutor.models')
+const Student = require('../models/student.models')
 
 // GET all tutors
 exports.getTutors = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const alltutors = await Tutor.find({})
   res.render('pages/tutors/all-tutors', {
     alltutors: alltutors,
+    user
   })
 }
 
 // Edit tutor by Id
 exports.editTutors = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const tutorDetail = await Tutor.find({ _id: req.params.id })
   res.render('pages/tutors/edit-tutor', {
     tutorDetail: tutorDetail,
+    user
   })
 }
 
@@ -55,8 +60,11 @@ exports.updateTutor = async (req, res, next) => {
 }
 
 // GET add tutor page
-exports.addTutor = (req, res, next) => {
-  res.render('pages/tutors/add-tutor')
+exports.addTutor = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
+  res.render('pages/tutors/add-tutor', {
+    user
+  })
 }
 
 // Post new tutor

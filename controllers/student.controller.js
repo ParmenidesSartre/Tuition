@@ -60,8 +60,11 @@ exports.updateStudent= async (req, res, next) => {
 }
 
 // GET add tutor page
-exports.addStudent = (req, res, next) => {
-  res.render('pages/students/add-student')
+exports.addStudent = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
+  res.render('pages/students/add-student', {
+    user, user
+  })
 }
 
 // Post new student
