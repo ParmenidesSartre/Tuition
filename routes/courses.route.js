@@ -1,12 +1,13 @@
 const courseRouter = require('express').Router()
 const courseController = require('../controllers/course.controller')
+const allow = require('../middleware/allow')
 
-courseRouter.route('/all').get(courseController.getCourses)
+courseRouter.route('/all').get(allow,courseController.getCourses)
 courseRouter
   .route('/edit/:id')
-  .get(courseController.editCourses)
-  .post(courseController.updateCourse)
-courseRouter.route('/details/:id').get(courseController.getCourseDetails)
-courseRouter.route('/add-course').get(courseController.addCourse).post(courseController.submitCourse)
+  .get(allow,courseController.editCourses)
+  .post(allow,courseController.updateCourse)
+courseRouter.route('/details/:id').get(allow,courseController.getCourseDetails)
+courseRouter.route('/add-course').get(allow,courseController.addCourse).post(allow,courseController.submitCourse)
 
 module.exports = courseRouter

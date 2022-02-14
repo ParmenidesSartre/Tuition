@@ -7,30 +7,37 @@ const parser = new DatauriParser()
 // Get data from MongoDB
 const Course = require('../models/course.models')
 const Tutor = require('../models/tutor.models')
+const Student = require('../models/student.models')
 
 // GET all courses
 exports.getCourses = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const allCourses = await Course.find({})
   res.render('pages/courses/courses', {
     courses: allCourses,
+    user : user
   })
 }
 
 // Edit course by Id
 exports.editCourses = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const courseDetail = await Course.find({ _id: req.params.id })
   const TutorList = await Tutor.find({})
   res.render('pages/courses/edit-courses', {
     courseDetail: courseDetail,
     tutors: TutorList,
+    user : user
   })
 }
 
 // GET course details by id
 exports.getCourseDetails = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const courseDetail = await Course.find({ _id: req.params.id })
   res.render('pages/courses/about-courses', {
     courseDetail: courseDetail,
+    user : user
   })
 }
 

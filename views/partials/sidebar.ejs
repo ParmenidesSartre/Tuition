@@ -30,6 +30,7 @@
                     <li><a href="/courses/add-course">Add Course</a></li>
                 </ul>
             </li>
+            <% if (user[0].designation === 'Admin') { %>
             <li class="nav-label">Management</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="la la-building"></i>
@@ -61,7 +62,8 @@
                     <li><a href="add-fees.html">Add Fees</a></li>
                     <li><a href="fees-receipt.html">Fees Receipt</a></li>
                 </ul>
-            </li>					
+            </li>
+            <% } %>					
         </ul>
     </div>
 </div>

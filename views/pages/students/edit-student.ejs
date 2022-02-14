@@ -73,9 +73,9 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0);">Students</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0);">Edit Student</a></li>
+                            <li class="breadcrumb-item"><a>Home</a></li>
+                            <li class="breadcrumb-item active"><a>Students</a></li>
+                            <li class="breadcrumb-item active"><a>Edit Student</a></li>
                         </ol>
                     </div>
                 </div>
@@ -87,36 +87,30 @@
 								<h5 class="card-title">Basic Info</h5>
 							</div>
 							<div class="card-body">
-                                <form action="#" method="post">
+                                <form action="/students/edit/<%= studentDetail[0].id %>" method="post" enctype="multipart/form-data">
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">First Name</label>
-												<input type="text" class="form-control" value="Deangelo">
+												<input type="text" name="firstName" class="form-control" value="<%= studentDetail[0].firstName %>">
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Last Name</label>
-												<input type="text" class="form-control" value="Sena">
+												<input type="text" name="lastName" class="form-control" value="<%= studentDetail[0].lastName %>">
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Email</label>
-												<input type="text" class="form-control" value="info@example.com">
+												<input type="text" name="email" class="form-control" value="<%= studentDetail[0].email %>">
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Registration Date</label>
-												<input name="datepicker" class="datepicker-default form-control" id="datepicker" value="07 August, 2021">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Roll No.</label>
-												<input type="text" class="form-control" value="52">
+												<input disabled name="datepicker" name="registrationDate" class="datepicker-default form-control" id="datepicker" value="<%= studentDetail[0].registrationDate.toLocaleDateString() %>">
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
@@ -140,18 +134,8 @@
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
-												<label class="form-label">Gender</label>
-												<select class="form-control">
-													<option value="Gender">Gender</option>
-													<option value="Male" selected>Male</option>
-													<option value="Female">Female</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
 												<label class="form-label">Mobile Number</label>
-												<input type="text" class="form-control" value="+01 123 456 7890">
+												<input type="text" name="mobile" class="form-control" value="<%= studentDetail[0].mobile %>">
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
@@ -163,35 +147,17 @@
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Parents Mobile Number</label>
-												<input type="text" class="form-control" value="+01 987 654 3210">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Date of Birth</label>
-												<input name="datepicker" class="datepicker-default form-control" id="datepicker1" value="31 July 1998">
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Blood Group</label>
-												<input type="text" class="form-control"  value="+AB">
-											</div>
-										</div>
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Address</label>
-												<textarea class="form-control" rows="5">Demo Address #8901 Marmora Road Chi Minh City, Vietnam</textarea>
+												<input type="text" name="parentMobile" class="form-control" value="<%= studentDetail[0].mobileParent %>">
 											</div>
 										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="form-group fallback w-100">
-												<input type="file" class="dropify" data-default-file="">
+												<input type="file" name="image"     class="dropify" data-default-file="">
 											</div>
 										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<button type="submit" class="btn btn-primary">Submit</button>
-											<button type="submit" class="btn btn-light">Cencel</button>
+											<button type="submit" class="btn btn-light">Cancel</button>
 										</div>
 									</div>
 								</form>

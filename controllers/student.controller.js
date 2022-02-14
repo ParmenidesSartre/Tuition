@@ -9,22 +9,27 @@ const Student = require('../models/student.models')
 
 // GET all tutors
 exports.getStudents = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const allStudents = await Student.find({})
   res.render('pages/students/all-students', {
     allStudents: allStudents,
+    user : user
   })
 }
 
 // Edit tutor by Id
 exports.editStudents = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const studentDetail = await Student.find({ _id: req.params.id })
   res.render('pages/students/edit-student', {
     studentDetail: studentDetail,
+    user : user
   })
 }
 
 // GET tutor details by id
 exports.getStudentDetails = async (req, res, next) => {
+  const user = await Student.find({_id : req.session.user[0]._id})
   const studentDetail = await Student.find({ _id: req.params.id })
   res.render('pages/students/about-student', {
     studentDetail: studentDetail,
@@ -59,7 +64,7 @@ exports.addStudent = (req, res, next) => {
   res.render('pages/students/add-student')
 }
 
-// Post new tutor
+// Post new student
 exports.submitStudent = async (req, res, next) => {
   if (req.file) {
     const file = parser.format(

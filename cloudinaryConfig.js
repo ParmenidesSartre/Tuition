@@ -5,7 +5,7 @@ dotenv.config({ path: './config.env' })
 
 exports.config = (req, res, next) => {
   cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
+    cloud_name: process.env.CLOUDNAME,
     api_key: process.env.APIKEY,
     api_secret: process.env.APISECRET,
   })
