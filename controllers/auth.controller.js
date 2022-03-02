@@ -1,4 +1,4 @@
-const Auth = require('../models/student.models')
+const User = require('../models/user.models')
 const bcrypt = require('bcryptjs');
 
 
@@ -9,18 +9,18 @@ exports.getRegister = (req, res, next) => {
 exports.postRegister = async (req, res, next) => {
     const email = req.body.email
     const password = req.body.password
-    const account = await Auth.findOne({email : email})
+    const account = await User.findOne({email : email})
     if (account) {
         res.redirect('/', {
             error: 'Account already exists'
         })
     } else {
         const hashedPassword = await bcrypt.hash(password, 12)
-        const newAccount = new Auth({
+        const newAccount = new User({
             email : email,
             password : hashedPassword,
             registrationDate : new Date().toISOString(),
-            designation : 'Student'
+            designation : 'Admin'
         })
         newAccount.save((err, result ) => {
             if (err) {
@@ -28,7 +28,7 @@ exports.postRegister = async (req, res, next) => {
                     error : err
                 })
             } else {
-                res.redirect('/')
+                res.redirect('/auth/login')
             }
         })
     }
@@ -36,7 +36,8 @@ exports.postRegister = async (req, res, next) => {
 
 exports.postLogout = (req, res, next) => {
     req.session.destroy(err => {
-        res.redirect('/')
+        res.redirect('/auth/login')
     })
     
 }
+

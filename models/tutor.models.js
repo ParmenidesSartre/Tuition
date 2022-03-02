@@ -32,6 +32,9 @@ const tutorSchema = mongoose.Schema({
     education : {
         type : String,
         required : [true, 'A tutor must have a education details']
+    },
+    class : {
+        type : [{ type : mongoose.Schema.Types.ObjectId, ref: 'Course Details' }]
     }
 })
 

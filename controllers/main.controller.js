@@ -1,4 +1,4 @@
-const Student = require('../models/student.models')
+const User = require('../models/user.models')
 const bcrypt = require('bcryptjs')
 
 
@@ -7,14 +7,15 @@ exports.getLogin = (req, res, next) => {
 }
 
 exports.postLogin = async (req, res, next) => {
-    const student = await Student.find({ email : req.body.email})
-    if (student) {
-        if (bcrypt.compare( req.body.password, student[0].password)) {
+    const user = await User.find({ email : req.body.email})
+    if (user) {
+        const isMatch = await bcrypt.compare(req.body.password, user[0].password)
+        if (isMatch) {
             req.session.isLoggedIn = true;
-            req.session.user = student;
+            req.session.user = user;
             req.session.save((err) => {
-                if (!student[0].firstName) {
-                    res.redirect(`/students/edit/${student[0]['_id']}`)
+                if (!user[0].firstName) {
+                    res.redirect(`/user/edit/${user[0]['_id']}`)
                 } else {
                     res.redirect('/courses/all')
                 }

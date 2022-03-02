@@ -9,7 +9,9 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="/tutors/all">All Tutors</a></li>
+                    <% if (user[0].designation === 'Admin') { %>
                     <li><a href="/tutors/add-tutor">Add Tutor</a></li>
+                    <% } %>
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -18,7 +20,9 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="/students/all">All Students</a></li>
+                    <% if (user[0].designation === 'Admin') { %>
                     <li><a href="/students/add-student">Add Student</a></li>
+                    <% } %>
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -27,7 +31,9 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="/courses/all">All Course</a></li>
+                    <% if (user[0].designation === 'Admin') { %>
                     <li><a href="/courses/add-course">Add Course</a></li>
+                    <% } %>
                 </ul>
             </li>
             <% if (user[0].designation === 'Admin') { %>

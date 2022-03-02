@@ -32,9 +32,6 @@ const studentSchema = mongoose.Schema({
     password : {
         type : String,
     },
-    designation : {
-        type : String,
-    }
 })
 
 module.exports = mongoose.model('student Details', studentSchema )

@@ -4,7 +4,6 @@ const courseSchema = mongoose.Schema({
     code : {
         type: String,
         required: [true, 'A course must have a code'],
-        unique: true,
     },
     name : {
         type: String,

@@ -10,6 +10,8 @@ const tutorRouter = require('./routes/tutors.route');
 const studentRouter = require('./routes/students.route');
 const authRouter = require('./routes/auth.route');
 const mainRouter = require('./routes/main.route');
+const attendanceRouter = require('./routes/attendance.route');
+const userRouter = require('./routes/user.route')
 
 const User = require('./models/student.models');
 // Session
@@ -25,7 +27,7 @@ const store = new MongoDBStore({
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/views/assets'));
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cloudinary.config);
@@ -63,7 +65,11 @@ app.use('/courses', multerUpload, courseRouter);
 app.use('/tutors/', multerUpload, tutorRouter);
 app.use('/students/', multerUpload, studentRouter);
 app.use('/auth', authRouter )
-app.use('/', mainRouter)
+app.use('/user', userRouter);
+app.use('/qr', attendanceRouter)
+app.use('/', (req, res) => {
+  res.render('pages/landing/index')
+})
 
 
 // Connecting to the database

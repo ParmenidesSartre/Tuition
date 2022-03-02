@@ -4,7 +4,9 @@
   "description": "Learning Centre Management System",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,8 @@
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "mongoose": "^6.2.1",
-    "multer": "^1.4.4"
+    "multer": "^1.4.4",
+    "qr-scanner": "^1.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

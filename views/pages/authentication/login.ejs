@@ -17,29 +17,30 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                    <h4 class="text-center mb-4">Please Sign in to Your Account</h4>
-                                    <form action="/" method="POST">
+                                    <div class="d-flex justify-content-center pb-4">
+                                        <img src="/landing/images/favicon.ico" height= "60px" alt="">
+                                    </div>
+                                    <h4 class="text-center mb-4">Log Masuk ke Tekun</h4>
+                                    <form action="/auth/login" method="POST">
                                         <div class="form-group">
                                             <label><strong>Email</strong></label>
                                             <input type="email" name="email" class="form-control" placeholder="hello@example.com">
-                                            <p>email : belzebub@gmail.com</p>
                                         </div>
                                         <div class="form-group">
-                                            <label><strong>Password</strong></label>
+                                            <label><strong>Kata Laluan</strong></label>
                                             <input type="password" name="password" class="form-control" >
-                                            <p>password : kucing</p>
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
-                                                <a href="page-forgot-password.html">Forgot Password?</a>
+                                                <a href="page-forgot-password.html" class="text-primary"> Lupa Kata Laluan ?</a>
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign me in</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Log Masuk</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary" href="/auth/register  "> Register</a></p>
+                                        <p>Tiada Akaun ? <a class="text-primary" href="/auth/register  "> Daftar Akaun Baru</a></p>
                                     </div>
                                 </div>
                             </div>

@@ -92,7 +92,7 @@
 								<div class="card">
 									<div class="card-header">
 										<h4 class="card-title">All Students List  </h4>
-										<a href="add-student.html" class="btn btn-primary">+ Add new</a>
+										<a href="/students/add-student" class="btn btn-primary">+ Add new</a>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
@@ -114,7 +114,7 @@
 														<td><a href="javascript:void(0);"><strong><%= student.email %></strong></a></td>
 														<td><%= student.registrationDate.toLocaleDateString() %></td>
 														<td>
-															<a href="javascript:void(0);" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
+															<a href="/students/edit/<%= student.id %>" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
 															<a href="javascript:void(0);" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i></a>
 														</td>												
 													</tr>
@@ -136,7 +136,7 @@
 														<span class="dropdown-dots fs--1"></span>
 													</button>
 													<div class="dropdown-menu dropdown-menu-right border py-0">
-														<div class="py-2">
+														<div class="py-2 d-flex justify-content-around">
 															<a class="dropdown-item" href="/students/edit/<%= student.id %>">Edit</a>
 															<a class="dropdown-item text-danger" href="javascript:void(0);">Delete</a>
 														</div>
@@ -153,7 +153,7 @@
 														<li class="list-group-item px-0 d-flex justify-content-between">
 															<span class="mb-0">Phone No. :</span><strong><%= student.mobile %></strong></li>
 														<li class="list-group-item px-0 d-flex justify-content-between">
-															<span class="mb-0">Registration Date. :</span><strong><%= student.registrationDate.toLocaleDateString() %></strong></li>
+															<span class="mb-0">Registration Date. :</span><strong><%= student.registrationDate.toLocaleDateString() %>	</strong></li>
 														<li class="list-group-item px-0 d-flex justify-content-between">
 															<span class="mb-0">Email:</span><strong><%= student.email %></strong></li>
 													</ul>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+    <%- include("../../partials/head.ejs") %>
+
+    <link rel="stylesheet" href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+	
+	<!-- Pick date -->
+    <link rel="stylesheet" href="/vendor/pickadate/themes/default.css">
+    <link rel="stylesheet" href="/vendor/pickadate/themes/default.date.css">
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                <img class="logo-abbr" src="images/logo-white.png" alt="">
+                <img class="logo-compact" src="images/logo-text-white.png" alt="">
+                <img class="brand-title" src="images/logo-text-white.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <%- include("../../partials/navbarheader.ejs") %>     
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include("../../partials/header.ejs") %>     
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include("../../partials/sidebar.ejs") %> 
+        <!--**********************************
+            Sidebar end
+        ***********************************-->   
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+            <div class="container-fluid">
+			
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Edit User</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="edit-User.html">Users</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit User</a></li>
+                        </ol>
+                    </div>
+                </div>
+				
+				<div class="row">
+					<div class="col-xl-12 col-xxl-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+								<h5 class="card-title">Basic Info</h5>
+							</div>
+							<div class="card-body">
+                                <form action="/user/edit/<%= userDetail[0].id %>" method="post">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">First Name</label>
+												<input type="text" name="firstName" value="<%= userDetail[0].firstName %>" class="form-control">
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Last Name</label>
+												<input type="text" name="lastName" value="<%= userDetail[0].lastName %>" class="form-control">
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Email</label>
+												<input type="text" name="email" value="<%= userDetail[0].email %>" class="form-control">
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Tuition Centre Name</label>
+												<input  name="tuitionName"  value="<%= userDetail[0].tuitionName %>" class="form-control">
+											</div>
+										</div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Mobile Number ( Example : 0135134758 )</label>
+												<input type="text" name="mobile" value="<%= userDetail[0].mobile %>" class="form-control">
+											</div>
+										</div>
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<button type="submit" class="btn btn-primary">Submit</button>
+											<button type="submit" class="btn btn-light">Cancel</button>
+										</div>
+									</div>
+								</form>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <%- include("../../partials/footer.ejs") %>   
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="/vendor/global/global.min.js"></script>
+	<script src="/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/js/custom.min.js"></script>
+	<script src="/js/dlabnav-init.js"></script>
+
+	<!-- Svganimation scripts -->
+    <script src="/vendor/svganimation/vivus.min.js"></script>
+    <script src="/vendor/svganimation/svg.animation.js"></script>
+    
+	
+	<!-- pickdate -->
+    <script src="/vendor/pickadate/picker.js"></script>
+    <script src="/vendor/pickadate/picker.time.js"></script>
+    <script src="/vendor/pickadate/picker.date.js"></script>
+	
+	<!-- Pickdate -->
+    <script src="/js/plugins-init/pickadate-init.js"></script>
+	
+</body>
+</html>
